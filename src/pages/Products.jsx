@@ -84,7 +84,8 @@ function Products() {
     }
 
     if(loader) {
-        return <div>Loading...</div>
+        //To Show Loader Component.
+        return <div className='w-full h-full flex justify-center items-center'>Loading...</div>
     }
 
     if(error) {
@@ -107,7 +108,7 @@ function Products() {
             {showFilters && <Filters applyFilters={applyFilters} clearFilters={clearFilters}/>}
           </div>
           <div className="mt-6 px-6 grid grid-cols-1 leading-tight gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-              {filteredProducts.slice(firstPageIndex, lastPageIndex).map((product) => (
+              {filteredProducts.length>0? filteredProducts.slice(firstPageIndex, lastPageIndex).map((product) => (
                   <div key={product.id} className='group relative'>
                       <ProductCard
                           src={product.thumbnail}
@@ -116,7 +117,8 @@ function Products() {
                           description={product.description}
                       />
                   </div>
-              ))}
+              )) : 
+              <h1 className='my-4'>No Results Found!</h1>}
           </div>
           <PaginationDiv>
               <Pagination
