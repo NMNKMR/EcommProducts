@@ -60,6 +60,7 @@ function Products() {
     }, [sortOption])
 
     const applyFilters = (selectedPriceRange, selectedCategories)=> {
+        setCurrentPage(1);
         const filtered = products.filter(item => {
             const priceInRange = selectedPriceRange.length === 0 || selectedPriceRange.includes(getPriceRange(item.price));
             const categoryIncluded = selectedCategories.length === 0 || selectedCategories.includes(item.category);
