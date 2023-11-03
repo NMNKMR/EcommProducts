@@ -73,6 +73,7 @@ function Products() {
 
     const clearFilters = ()=> {
         setSortOption("");
+        setCurrentPage(1);
         setFilteredProducts(products);
         setShowFilters(false);
     }
@@ -126,7 +127,10 @@ function Products() {
                   currentPage={currentPage}
                   totalCount={filteredProducts.length}
                   pageSize={pageSize}
-                  onPageChange={page => setCurrentPage(page)} />
+                  onPageChange={page => {
+                    setCurrentPage(page)
+                    window.scrollTo({top: 0, left:0, behavior: 'smooth'})
+                    }} />
           </PaginationDiv>
       </div>
   )
