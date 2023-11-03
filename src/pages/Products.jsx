@@ -85,7 +85,7 @@ function Products() {
 
     if(loader) {
         //To Show Loader Component.
-        return <div className='w-full h-full flex justify-center items-center'>Loading...</div>
+        return <div className='w-full min-h-screen flex justify-center items-center'>Loading...</div>
     }
 
     if(error) {
@@ -118,7 +118,7 @@ function Products() {
                       />
                   </div>
               )) : 
-              <h1 className='my-4'>No Results Found!</h1>}
+              <h1 className='my-4 mx-auto font-bold text-2xl'>No Results Found!</h1>}
           </div>
           <PaginationDiv>
               <Pagination
